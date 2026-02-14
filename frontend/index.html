@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CareerBoost - Your 30-Day Journey to Success</title>
-
+<title>Jobify - Your 30-Day Journey to Success</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,79 +16,89 @@
 <div class="gradient-orb orb-3"></div>
 </div>
 
-<!-- Navigation -->
+<!-- NAVBAR -->
 <nav id="navbar">
 <div class="nav-container">
-<div class="logo">🚀 CareerBoost</div>
+
+<div class="logo">
+<img src="logo.png" class="nav-logo"> Jobify
+</div>
 
 <div class="nav-links">
-<a href="#" onclick="showSection('landing')">Home</a>
-<a href="#" onclick="showSection('dashboard')">Dashboard</a>
-<a href="#" onclick="showSection('roadmap')">Roadmap</a>
-<a href="#" onclick="showSection('jobs')">Jobs</a>
-<a href="#" onclick="showSection('leaderboard')">Leaderboard</a>
+<a onclick="showSection('landing')">Home</a>
+<a onclick="showSection('dashboard')">Dashboard</a>
+<a onclick="showSection('roadmap')">Roadmap</a>
+<a onclick="showSection('jobs')">Jobs</a>
+<a onclick="showSection('leaderboard')">Leaderboard</a>
 </div>
 
-<div class="user-profile">
-<div class="points-badge" id="userPoints">
-⭐ 0 Points
-</div>
-</div>
+<div class="points-badge" id="userPoints">⭐ 0</div>
+
 </div>
 </nav>
 
 
 <div class="container">
 
-<!-- Landing Section -->
+<!-- ================= LANDING ================= -->
 <section id="landing-section" class="section">
+
 <div class="hero">
 <h1>Transform Your Career in 30 Days</h1>
-<p>AI-powered personalized roadmap to land your dream job</p>
+<p>AI-powered roadmap to land your dream job</p>
 <button class="btn btn-primary btn-large" onclick="showSection('onboarding')">
-Start Your Journey 🚀
+Start Journey 🚀
 </button>
 </div>
 
-<div class="stats-grid">
-<div class="stat-card primary">
-<div class="stat-value">10K+</div>
-<div class="stat-label">Success Stories</div>
+<div class="scroll-container">
+<div class="scroll-wrapper">
+
+<div class="card">
+<div class="card-content">
+<h3>Strategic Gap Analysis</h3>
+<p>AI detects missing skills between you and your target role.</p>
+</div>
+<img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=500">
 </div>
 
-<div class="stat-card success">
-<div class="stat-value">95%</div>
-<div class="stat-label">Success Rate</div>
+<div class="card">
+<div class="card-content">
+<h3>Adaptive Career Roadmap</h3>
+<p>Personalized 30-day learning plan.</p>
+</div>
+<img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=400">
 </div>
 
-<div class="stat-card warning">
-<div class="stat-value">500+</div>
-<div class="stat-label">Partner Companies</div>
+<div class="card">
+<div class="card-content">
+<h3>Performance Incentives</h3>
+<p>Earn XP and unlock rewards.</p>
+</div>
+<img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=400">
 </div>
 
-<div class="stat-card info">
-<div class="stat-value">30</div>
-<div class="stat-label">Days to Success</div>
+<div class="card">
+<div class="card-content">
+<h3>Precision Job Alignment</h3>
+<p>Get matched to real jobs.</p>
+</div>
+<img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=400">
+</div>
+
 </div>
 </div>
 
-<div class="grid-3">
-<div class="card"><h3>📊 Gap Analysis</h3><p>AI identifies skill gaps between your current profile and dream role</p></div>
-<div class="card"><h3>🗺️ Personalized Roadmap</h3><p>30-day customized plan with courses, projects, and exercises</p></div>
-<div class="card"><h3>🎮 Gamification</h3><p>Earn points, compete with peers, unlock achievements</p></div>
-<div class="card"><h3>💼 Job Matching</h3><p>Apply to roles based on your progress and points</p></div>
-<div class="card"><h3>📈 Progress Tracking</h3><p>Real-time monitoring of your skill development</p></div>
-<div class="card"><h3>💰 Market Value</h3><p>See the earning potential of each skill you learn</p></div>
-</div>
 </section>
 
 
-<!-- Onboarding Section -->
+
+<!-- ================= ONBOARDING ================= -->
 <section id="onboarding-section" class="section hidden">
 
 <div class="section-header">
 <h2 class="section-title">Let's Get Started</h2>
-<p class="section-subtitle">Choose how you want to share your profile</p>
+<p class="section-subtitle">Upload your resume</p>
 </div>
 
 <div class="upload-options">
@@ -97,183 +106,105 @@ Start Your Journey 🚀
 <div class="upload-card" onclick="document.getElementById('resume-upload').click()">
 <div class="upload-icon">📄</div>
 <h3>Upload Resume</h3>
-<p>PDF, DOC, or DOCX format</p>
-<input type="file" id="resume-upload" accept=".pdf,.doc,.docx" style="display:none" onchange="handleFileUpload(event,'resume')">
-</div>
-
-<div class="upload-card" onclick="connectSocial('linkedin')">
-<div class="upload-icon">💼</div>
-<h3>Connect LinkedIn</h3>
-<p>Auto-extract your profile data</p>
-</div>
-
-<div class="upload-card" onclick="connectSocial('github')">
-<div class="upload-icon">💻</div>
-<h3>Connect GitHub</h3>
-<p>Analyze your projects & contributions</p>
-</div>
-
-<div class="upload-card" onclick="document.getElementById('screenshot-upload').click()">
-<div class="upload-icon">📸</div>
-<h3>Upload Screenshot</h3>
-<p>Profile screenshot (PNG/JPG)</p>
-<input type="file" id="screenshot-upload" accept="image/*" style="display:none" onchange="handleFileUpload(event,'screenshot')">
+<p>PDF / DOCX</p>
+<input id="resume-upload" type="file" accept=".pdf,.doc,.docx"
+style="display:none" onchange="handleFileUpload(event)">
 </div>
 
 </div>
+
 
 <div class="card" style="margin-top:3rem;">
-<h3 style="margin-bottom:1.5rem;">Tell Us About Your Goals</h3>
 
-<form class="profile-form" id="profile-form">
+<h3>Tell Us About Your Goals</h3>
+
+<form class="profile-form">
 
 <div class="form-group">
 <label>Dream Role</label>
-<input id="dream-role" type="text" placeholder="e.g., Full Stack Developer" required>
+<input id="dream-role" type="text" placeholder="Full Stack Developer">
 </div>
 
-
 <div class="form-group">
-<label>Current Status</label>
-<select required>
-<option value="">Select...</option>
-<option value="student">Student</option>
-<option value="working">Working Professional</option>
-<option value="freelancer">Freelancer</option>
-<option value="career-break">Career Break</option>
+<label>Status</label>
+<select>
+<option>Student</option>
+<option>Working</option>
 </select>
 </div>
 
 <div class="form-group">
 <label>Degree</label>
-<input type="text" placeholder="e.g., B.Tech in Computer Science" required>
+<input type="text">
 </div>
 
 <div class="form-group">
-<label>Year of Study/Experience</label>
-<select required>
-<option value="">Select...</option>
-<option value="1">1st Year / 0-1 years</option>
-<option value="2">2nd Year / 1-2 years</option>
-<option value="3">3rd Year / 2-3 years</option>
-<option value="4">4th Year / 3-5 years</option>
-<option value="5">5+ years</option>
+<label>Experience</label>
+<select>
+<option>0-1 yrs</option>
+<option>1-3 yrs</option>
+<option>3+ yrs</option>
 </select>
 </div>
 
 <div class="form-group" style="grid-column:1/-1;">
-<label>Key Skills</label>
-<textarea id="skills" rows="3"></textarea>
-</div>
-
-
-<div class="form-group" style="grid-column:1/-1;">
-<label>Additional Goals</label>
-<textarea rows="3"></textarea>
+<label>Skills</label>
+<textarea id="skills"></textarea>
 </div>
 
 </form>
 
-<button class="btn btn-primary btn-large" style="margin-top:2rem;" onclick="generateRoadmap()">
+<button class="btn btn-primary btn-large" onclick="generateRoadmap()">
 Generate My Roadmap 🎯
 </button>
+
 </div>
 </section>
 
 
-<!-- Dashboard -->
+
+<!-- ================= DASHBOARD ================= -->
 <section id="dashboard-section" class="section hidden">
 
-<div class="section-header">
-<h2 class="section-title">Your Dashboard</h2>
-<p class="section-subtitle">Track your progress and achievements</p>
-</div>
-
 <div class="stats-grid">
-<div class="stat-card primary"><div class="stat-value" id="days-completed">0</div><div class="stat-label">Days Completed</div></div>
-<div class="stat-card success"><div class="stat-value" id="tasks-completed">0</div><div class="stat-label">Tasks Completed</div></div>
-<div class="stat-card warning"><div class="stat-value" id="total-points">0</div><div class="stat-label">Total Points</div></div>
-<div class="stat-card info"><div class="stat-value" id="skill-rating">0.0</div><div class="stat-label">Skill Rating</div></div>
-</div>
-
-<div class="grid-2">
-<div class="glass-card">
-<h3>Overall Progress</h3>
-<div class="progress-bar"><div class="progress-fill" id="overall-progress"></div></div>
-<p style="margin-top:.5rem;color:var(--text-muted)">0% Complete</p>
-</div>
-
-<div class="glass-card">
-<h3>Current Streak</h3>
-<div style="font-size:3rem;text-align:center">🔥</div>
-<p id="streak-count" style="text-align:center;font-size:1.5rem;font-weight:900">0 Days</p>
-</div>
+<div class="stat-card"><div id="tasks-completed">0</div>Tasks</div>
+<div class="stat-card"><div id="total-points">0</div>Points</div>
+<div class="stat-card"><div id="skill-rating">0</div>Rating</div>
 </div>
 
 </section>
 
-<!-- Roadmap -->
+
+
+<!-- ================= ROADMAP ================= -->
 <section id="roadmap-section" class="section hidden">
-<div class="section-header">
-<h2 class="section-title">Your 30-Day Roadmap</h2>
-<p class="section-subtitle">Complete daily tasks to level up your skills</p>
-</div>
 
-<div class="roadmap-container" id="roadmap-container"></div>
+<h2>Your Roadmap</h2>
+<div id="roadmap-container"></div>
+
 </section>
 
 
-<!-- Jobs -->
+
+<!-- ================= JOBS ================= -->
 <section id="jobs-section" class="section hidden">
-<div class="section-header">
-<h2 class="section-title">Matched Job Opportunities</h2>
-<p class="section-subtitle">Apply to roles based on your progress</p>
-</div>
 
-<div class="card" style="margin-bottom:2rem;background:rgba(99,102,241,0.1);">
-<h4>🎯 Your Eligibility Score: <span id="eligibility-score">750</span> / 1000</h4>
-<p style="margin-top:.5rem;color:var(--text-muted)">Complete more challenges to unlock premium opportunities!</p>
-</div>
+<h2>Jobs</h2>
+<div id="jobs-container"></div>
 
-<div class="grid-2" id="jobs-container"></div>
 </section>
 
 
-<!-- Leaderboard -->
+
+<!-- ================= LEADERBOARD ================= -->
 <section id="leaderboard-section" class="section hidden">
-<div class="section-header">
-<h2 class="section-title">Leaderboard</h2>
-<p class="section-subtitle">Compete with fellow learners</p>
-</div>
 
-<div class="grid-2">
-<div class="leaderboard">
-<div style="padding:1.5rem;border-bottom:1px solid var(--border)">
-<h3>🌍 Global Rankings</h3>
-</div>
+<h2>Leaderboard</h2>
 <div id="global-leaderboard"></div>
-</div>
 
-<div class="leaderboard">
-<div style="padding:1.5rem;border-bottom:1px solid var(--border)">
-<h3>🎯 Full Stack Developer Track</h3>
-</div>
-<div id="track-leaderboard"></div>
-</div>
-</div>
 </section>
 
-</div>
 
-<!-- Modal -->
-<div class="modal" id="task-modal">
-<div class="modal-content">
-<div class="modal-header">
-<h3 class="modal-title" id="modal-task-title">Task Details</h3>
-<button class="close-modal" onclick="closeModal()">&times;</button>
-</div>
-<div id="modal-task-content"></div>
-</div>
 </div>
 
 <script src="app.js"></script>

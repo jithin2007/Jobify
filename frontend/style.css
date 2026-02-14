@@ -1,25 +1,29 @@
 :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #8b5cf6;
-            --accent: #ec4899;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --error: #ef4444;
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --bg-elevated: #334155;
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
-            --border: rgba(148, 163, 184, 0.2);
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            --glow-primary: 0 0 20px rgba(99, 102, 241, 0.5);
-            --glow-accent: 0 0 20px rgba(236, 72, 153, 0.5);
-        }
+    --primary: #10b981; /* Emerald Green */
+    --primary-dark: #059669;
+    --primary-light: #34d399;
+    --secondary: #064e3b;
+    --accent: #6ee7b7;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --bg-dark: #06100d; /* Deep Forest Black */
+    --bg-card: rgba(16, 24, 20, 0.8);
+    --bg-elevated: #13271f;
+    --text-primary: #ecfdf5;
+    --text-secondary: #a7f3d0;
+    --text-muted: #64748b;
+    --border: rgba(16, 185, 129, 0.15);
+    
+    /* Updated Gradients for Emerald Theme */
+    --gradient-1: linear-gradient(135deg, #10b981 0%, #064e3b 100%);
+    --gradient-2: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    --gradient-3: linear-gradient(135deg, #059669 0%, #065f46 100%);
+    --gradient-4: linear-gradient(135deg, #10b981 0%, #6ee7b7 100%);
+    
+    --glow-primary: 0 0 20px rgba(16, 185, 129, 0.3);
+    --bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
         * {
             margin: 0;
@@ -28,11 +32,25 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--bg-dark);
             color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
+            line-height: 1.7; /* More readable for humans */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            letter-spacing: -0.02em; /* Tighter headings look professional */
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            margin-bottom: 0.5rem;
         }
 
         /* Animated Background */
@@ -55,33 +73,19 @@
         }
 
         .orb-1 {
-            width: 500px;
-            height: 500px;
-            background: var(--gradient-1);
-            top: -250px;
-            left: -250px;
-            animation-delay: 0s;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.15;
         }
 
         .orb-2 {
-            width: 400px;
-            height: 400px;
-            background: var(--gradient-2);
-            bottom: -200px;
-            right: -200px;
-            animation-delay: 5s;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.1;
         }
 
         .orb-3 {
-            width: 350px;
-            height: 350px;
-            background: var(--gradient-3);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-delay: 10s;
+            background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+            opacity: 0.05;
         }
-
         @keyframes float {
             0%, 100% { transform: translate(0, 0) scale(1); }
             33% { transform: translate(50px, -50px) scale(1.1); }
@@ -89,16 +93,7 @@
         }
 
         /* Navigation */
-        nav {
-            background: rgba(30, 41, 59, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
+        
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -116,6 +111,12 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        .logo img {
+    height: 120px; 
+    width: auto;  
+    vertical-align: middle;
+    border-radius: 8px; 
+}
 
         .nav-links {
             display: flex;
@@ -193,7 +194,7 @@
             font-size: 3.5rem;
             font-weight: 900;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #667eea 0%, #ec4899 50%, #00f2fe 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #ffe600 50%, #10b981 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -212,29 +213,23 @@
         }
 
         /* Cards */
-        .card {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(10px);
+        .card, .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 2rem;
-            transition: all 0.3s ease;
+            box-shadow: var(--glass-shadow);
+            transition: all 0.4s var(--bounce);
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+                        0 0 20px rgba(99, 102, 241, 0.2);
         }
-
-        .glass-card {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-        }
-
         /* Grid Layouts */
         .grid-2 {
             display: grid;
@@ -242,11 +237,7 @@
             gap: 2rem;
         }
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
+        
 
         .grid-4 {
             display: grid;
@@ -267,15 +258,35 @@
             font-size: 1rem;
         }
 
+        
         .btn-primary {
-            background: var(--gradient-1);
+            /* Uses a gradient from bright emerald to a deep forest green */
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            box-shadow: var(--glow-primary);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            /* This creates a soft green glow that feels "premium" rather than "neon" */
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2), 
+                        0 0 20px rgba(16, 185, 129, 0.1);
+            transition: all 0.4s var(--bounce);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.6);
+            /* Lifts the button and intensifies the green glow */
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+        }
+
+        .btn-primary:active {
+            /* Physical "click" feedback */
+            transform: translateY(1px);
         }
 
         .btn-secondary {
@@ -298,7 +309,7 @@
             padding: 1rem 2.5rem;
             font-size: 1.1rem;
         }
-
+        
         /* Upload Section */
         .upload-options {
             display: flex;
@@ -396,36 +407,55 @@
 
         /* Roadmap */
         .roadmap-container {
+            position: relative; /* Essential for positioning the line */
+            padding-left: 3.5rem; /* Space for the vertical line */
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 2rem; /* More breathing room between days */
         }
 
+
+        .roadmap-container::before {
+            content: '';
+            position: absolute;
+            left: 1.15rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--border), transparent);
+        }
+
+        
+
         .roadmap-day {
-            background: var(--glass-card);
+            position: relative; /* Essential for positioning the node */
+            background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s var(--bounce);
         }
 
-        .roadmap-day::before {
+        /* This creates the circular "Node" on the timeline */
+        .roadmap-day::after {
             content: '';
             position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: var(--gradient-1);
-            transform: scaleY(0);
-            transition: transform 0.3s;
+            left: -2.85rem; /* Aligns perfectly with the container line */
+            top: 2rem;
+            width: 14px;
+            height: 14px;
+            background: var(--bg-dark);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 0.3s ease;
         }
 
-        .roadmap-day:hover::before {
-            transform: scaleY(1);
+        /* Highlighting the current/hovered day */
+        .roadmap-day:hover::after {
+            background: var(--primary);
+            box-shadow: 0 0 15px var(--primary);
+            transform: scale(1.3);
         }
 
         .roadmap-day.completed {
@@ -433,9 +463,14 @@
             border-color: var(--success);
         }
 
-        .roadmap-day.completed::before {
+       .roadmap-day.completed {
+            border-color: rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .roadmap-day.completed::after {
+            border-color: var(--success);
             background: var(--success);
-            transform: scaleY(1);
         }
 
         .day-header {
@@ -953,4 +988,154 @@
 
         ::-webkit-scrollbar-thumb:hover {
             background: var(--primary-dark);
+        }
+        #navbar, .nav-container {
+            background: transparent !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        .nav-links a {
+            padding: 8px 30px; 
+            border-radius: 30px; 
+            background-color: rgba(255, 255, 255, 0.05); 
+            transition: all 0.3s ease; 
+            display: inline-block;
+            text-decoration: none;
+        }
+
+
+        .nav-links a:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        #navbar {
+            position: relative !important; 
+            width: 100%;
+            z-index: 1000;
+            background: transparent !important; 
+            border: none !important;
+            
+            /* 1. Reduce this padding to pull the heading up */
+            padding: 10px 0 !important; 
+            
+            /* 2. Remove any bottom margin that's pushing the text away */
+            margin-bottom: 0 !important; 
+        }
+
+        /* 3. Tighten the top of the hero/header section */
+        #navbar + div, #navbar + section, .hero-content {
+            margin-top: -20px !important; /* A small negative margin pulls it closer to the links */
+            padding-top: 0 !important;
+        }
+        @keyframes rocket-wiggle {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(1px, -1px) rotate(2deg); }
+            50% { transform: translate(-1px, 1px) rotate(-1deg); }
+            75% { transform: translate(2px, -2px) rotate(3deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+        /* This makes the rocket wiggle when the button is hovered */
+        .btn-primary:hover span, 
+        .btn-primary:hover::after {
+            display: inline-block;
+            animation: rocket-wiggle 0.3s ease-in-out infinite;
+            /* This adds a tiny green engine glow to the rocket icon */
+            filter: drop-shadow(0 0 8px var(--primary-light));
+        }
+
+        /* This ensures the wiggle doesn't look "choppy" */
+        .btn-primary span {
+            display: inline-block;
+            transition: transform 0.3s var(--bounce);
+        }
+        
+        /* 1. The Container: Allows horizontal overflow and hides scrollbars */
+        .scroll-container {
+            width: 100%;
+            overflow-x: auto;
+            padding: 60px 0;
+            cursor: grab;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE 10+ */
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        /* 2. The Track: Lines cards up in a single row with Apple-style snapping */
+        .scroll-wrapper {
+            display: flex;
+            gap: 24px;
+            padding-left: 5%; /* Initial offset */
+            padding-right: 5%;
+            scroll-snap-type: x mandatory; /* The secret to the 'snapping' effect */
+        }
+
+        /* 3. The Cards: Sized for horizontal scrolling */
+        /* Update these lines in your .scroll-wrapper .card block */
+        /* 1. The Elongated Rectangular Card */
+        .scroll-wrapper .card {
+            flex: 0 0 320px; /* Thinner width */
+            height: 520px;   /* Vertical elongated height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Anchor text at top, image at bottom */
+            padding: 0 !important; /* CRITICAL: Remove padding so image hits the edge */
+            overflow: hidden; /* CRITICAL: This stops the image from coming out of the box */
+            
+            scroll-snap-align: center;
+            background: rgba(16, 24, 20, 0.6) !important;
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(16, 185, 129, 0.15) !important;
+            border-radius: 28px !important;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .card-content {
+            padding: 45px 30px 20px 30px; /* Spacious, top-heavy layout */
+            text-align: left;
+        }
+
+        .scroll-wrapper {
+            gap: 32px; /* Premium spacing between cards */
+        }
+
+        .scroll-wrapper .card h3 {
+            color: #00fef1 !important;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .scroll-wrapper .card p {
+            color: #fbda00 !important;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            opacity: 0.85; /* Visual hierarchy: highlights the header */
+        }
+        
+
+        /* 3. The Image Logic: Fits rectangularly at the bottom */
+        .card-image {
+            width: 100%;
+            height: 60%; /* Occupies bottom 60% of the box */
+            object-fit: cover; /* Prevents squishing or distortion */
+            border-top: 1px solid rgba(16, 185, 129, 0.1); /* Subtle emerald separator */
+            display: block; /* Removes any tiny ghost gaps */
+            transition: transform 0.6s ease;
+        }
+
+        /* 4. Interactive Hover */
+        .scroll-wrapper .card:hover {
+            transform: scale(1.02) translateY(-10px);
+            border-color: var(--primary) !important;
+        }
+
+        .scroll-wrapper .card:hover .card-image {
+            transform: scale(1.1); /* Zoom effect stays contained in the box */
         }
