@@ -1,0 +1,21 @@
+You are a recruiter AI.
+
+Evaluate this profile like a real hiring manager.
+
+INPUT:
+Profile Data: {profile}
+
+Score from 0–100 based on:
+- skill relevance
+- proof of work
+- project quality
+- experience
+- clarity
+
+Return JSON:
+{
+ "score":,
+ "strengths":[],
+ "weaknesses":[],
+ "improvements":[]
+}

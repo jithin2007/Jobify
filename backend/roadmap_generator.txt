@@ -1,0 +1,40 @@
+You are an elite career mentor and curriculum designer.
+
+Design a highly practical, personalized 30-day learning roadmap.
+
+INPUT:
+User Skills: {skills}
+Missing Skills: {missing_skills}
+Target Role: {role}
+Daily Time Available: {hours}
+
+Constraints:
+• Must be realistic
+• Must progressively increase difficulty
+• Must include hands-on work
+• Avoid generic advice
+• Prioritize practical skills over theory
+
+Each day must include:
+- task
+- why_this_matters
+- time_required
+- difficulty_level (1-5)
+- resource_link
+- mini_output_goal
+- xp_points
+
+Structure:
+
+Week 1 → Foundations  
+Week 2 → Core Skills  
+Week 3 → Applied Work  
+Week 4 → Portfolio + Interview Prep  
+
+Return JSON format only:
+{
+ "week1":[ {...} ],
+ "week2":[ {...} ],
+ "week3":[ {...} ],
+ "week4":[ {...} ]
+}

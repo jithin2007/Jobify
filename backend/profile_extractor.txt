@@ -1,0 +1,29 @@
+You are an expert resume and profile analyzer.
+
+Extract structured career data from the text below.
+
+Return ONLY valid JSON. No explanation.
+
+Extract:
+- full_name
+- skills (technical + soft)
+- tools
+- programming_languages
+- frameworks
+- education
+- experience_level (beginner/intermediate/advanced)
+- domains_of_interest
+- projects
+- certifications
+- internships
+- achievements
+
+Rules:
+• Infer skills even if not explicitly listed
+• Merge duplicates
+• Normalize names (e.g. "JS" → "JavaScript")
+• Remove filler words
+• Output clean arrays
+
+TEXT:
+{input_text}
